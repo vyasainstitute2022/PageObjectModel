@@ -7,14 +7,12 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MyAccountPage extends PageBase{
 	WebDriver driver;
-	public MyAccountPage(WebDriver driver)
+	public MyAccountPage(WebDriver d)
 	{
-		super(driver);
-		this.driver=driver;
+		super(d);
+		driver=d;
 		PageFactory.initElements(driver, this);
 	}
-	
-	
 
 	//elements
 	@FindBy(xpath="//h2[text()=\"Login\"]")
@@ -23,6 +21,18 @@ public class MyAccountPage extends PageBase{
 	@FindBy(linkText ="Lost your password?" )
 	private WebElement passwordLostEle;
 	
+	@FindBy(id="username")
+	private WebElement loginMailEle;
+	
+	@FindBy(id="password")
+	private WebElement loginPassEle;
+	
+	@FindBy(xpath="//input[@name=\"login\"]")
+	private WebElement loginButtonEle;
+	
+	@FindBy(xpath="//p[contains(text(),\"Hello\")]")
+	private WebElement helloEle;
+	
 	//action
 	public String getPageTitle()
 	{
@@ -30,7 +40,7 @@ public class MyAccountPage extends PageBase{
 	}
    public boolean LostPassworddisplay()
    {
-	return passwordLostEle.isDisplayed();
+	return eleIsDisplayed(passwordLostEle);
    }
    
    public boolean LostPasswordisEnabled()
@@ -42,5 +52,14 @@ public class MyAccountPage extends PageBase{
    {
 	   return loginHeaderEle.isDisplayed();
    }
+   
+   public boolean loginToMyAcount()
+   {
+	   loginMailEle.sendKeys("vyasainstitute2022@gmail.com");
+	   loginPassEle.sendKeys("Vyasa@12345");
+	   loginButtonEle.click();
+	   return  helloEle.isDisplayed();
+   }
+   
 	
 }

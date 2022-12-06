@@ -1,5 +1,6 @@
 package com.vyasasti.pom.testclass;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -44,6 +45,12 @@ public class MyAccountPageTest extends TestBase{
 	public void verifyPasswordLostLinkEnabled()
 	{
 		Assert.assertEquals(mp.LostPasswordisEnabled(), true);
+	}
+	
+	@Test(priority=5)
+	public void verifyLoginSuccess()
+	{
+		Assert.assertTrue(mp.loginToMyAcount());
 	}
 	
    @AfterClass

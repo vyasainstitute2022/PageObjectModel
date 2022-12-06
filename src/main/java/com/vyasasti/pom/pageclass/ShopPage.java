@@ -1,11 +1,26 @@
 package com.vyasasti.pom.pageclass;
 
-public class ShopPage extends PageBase {
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
+public class ShopPage extends PageBase {
+	WebDriver driver;
+	public ShopPage(WebDriver d)
+	{
+		super(d);
+		driver=d;
+		PageFactory.initElements(driver, this);
+	}
 	
-	// element 
+	// element
+	
+	
+	
 		// actions
 		
+	
+	
+	
 	
 	
 }

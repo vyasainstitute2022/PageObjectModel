@@ -1,6 +1,7 @@
 package com.vyasasti.pom.pageclass;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class PageBase {
 
@@ -15,5 +16,10 @@ public class PageBase {
 	
 	//common methods of all Page classes
 	
+	
+	 boolean eleIsDisplayed(WebElement ele)
+	{
+		return  ele.isDisplayed();
+	}
 
 }
